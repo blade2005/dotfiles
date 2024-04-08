@@ -10,7 +10,7 @@ GOLANG_VERSION=1.22.1
 
 function _install_symlinks() {
   echo Installing symlinks and scripts
-  
+
   local files="
   .bash_aliases
   .bash_logout
@@ -130,14 +130,14 @@ function _install_deps() {
 function _install_gh_cli() {
   sudo install -m 644 /dev/null /usr/share/keyrings/githubcli-archive-keyring.gpg
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /usr/share/keyrings/githubcli-archive-keyring.gpg >/dev/null
-  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null 
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
   sudo apt update
   sudo apt install gh -y
 }
 
 function _install_spaceship_prompt() {
   if [ ! "$HOME/.zsh" ];then mkdir -p "$HOME/.zsh";fi
-  if [ -e "$HOME/.zsh/spaceship" ];then 
+  if [ -e "$HOME/.zsh/spaceship" ];then
     git pull -C "$HOME/.zsh/spaceship"
   else
     git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$HOME/.zsh/spaceship"
@@ -374,7 +374,7 @@ function _install_nvshim() {
 }
 
 function _install_tmux_completions() {
-  wget -O ~/.local/share/bash-completion/tmux.bash https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux 
+  wget -O ~/.local/share/bash-completion/tmux.bash https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux
 }
 
 function _install_pnpm() {

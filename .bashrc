@@ -277,4 +277,3 @@ if [ -n "$PATH" ]; then
 fi
 
 export BASHRC_LOADED=1
-
